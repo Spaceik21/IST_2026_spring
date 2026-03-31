@@ -2,17 +2,16 @@ import random
 import typing as tp
 
 def is_prime(n):
-  if n < 1:
-    return False
-  if n == 1 or n == 2:
+    if n <= 1:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    for i in range(3, n//2 + 1, 2):
+        if n % i == 0:
+            return False
     return True
-  for i in range(2, n//2 + 1):
-    if n % i == 0:
-      return False
-      break
-    elif n % i != 0:
-      i+=1
-  return True
 
 def gcd(a, b):
     while b != 0:
